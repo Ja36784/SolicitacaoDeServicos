@@ -40,7 +40,7 @@ public class ClienteController {
     }
 
     // Excluir cliente
-    @PostMapping("/{id}/excluir")
+    @DeleteMapping("/{id}/excluir")
     public String excluir(@PathVariable Long id) {
         clienteService.excluir(id);
         return "redirect:/clientes";
@@ -68,8 +68,7 @@ public class ClienteController {
 
     // Exibir formulário de criação de novo cliente
     @GetMapping("/novo")
-    public String novoCliente(Model model) {
-        System.out.println("Acessando /novo");
+    public String novoCliente(Model model) {        
         model.addAttribute("cliente", new Cliente());
         return "clientes/novo";
     }
